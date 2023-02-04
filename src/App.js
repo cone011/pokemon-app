@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { getSearchPokemon } from "./api/api";
 
 function App() {
+  const onObtenerDatos = () => {
+    const arr = getSearchPokemon("pikachu");
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +21,9 @@ function App() {
         >
           Learn React
         </a>
+        <button className="btn" onClick={onObtenerDatos}>
+          Obtener datos
+        </button>
       </header>
     </div>
   );
