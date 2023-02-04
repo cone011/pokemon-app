@@ -15,7 +15,7 @@ const SearchPokemon = () => {
   };
 
   const onGetSearchInputValueHandler = (eventValue) => {
-    setSearchPokemon(e.target.value);
+    setSearchPokemon(eventValue.target.value);
   };
 
   return (
