@@ -1,10 +1,10 @@
-import PokemonList from "../PokemonList/PokemonList";
 import { Route, Routes } from "react-router-dom";
+import Home from "../../Pages/Home";
 
 const RoutesFiles = () => {
   return (
     <Routes>
-      <Route path="/" element={<PokemonList />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 };

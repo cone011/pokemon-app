@@ -16,6 +16,9 @@ export async function getSearchPokemon(pokemonName) {
   if (!result.ok) {
     throw new Error("No se pudo encontrar el pokemon ingresado");
   }
+}
 
-  console.log(jsonResult);
+export function GetPokemonImage(idPokemon) {
+  let idImage = idPokemon.toString().padStart(3, "0");
+  return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idImage}.png`;
 }
