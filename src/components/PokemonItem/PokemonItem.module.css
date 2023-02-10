@@ -35,15 +35,17 @@
   color: var(--lightest_gray);
 }
 
-.typeItem {
-  width: 48%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 2px;
+.btnDetalle {
+  cursor: pointer;
+  font: inherit;
+  color: rgb(8, 8, 8);
+  background-color: #ececec;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 0.5rem 2.5rem;
+}
+
+.btnDetalle:hover {
+  background-color: #030303;
+  border-color: #f3f3f3;
 }

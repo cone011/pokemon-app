@@ -21,6 +21,7 @@ const PokemonItem = (props) => {
           src={GetPokemonImage(pokemonObject.id)}
         />
       </figure>
+      <button className="btn">Detalle</button>
     </CustomContainer>
   );
 };
