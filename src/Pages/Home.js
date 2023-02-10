@@ -1,11 +1,13 @@
+import SearchPokemon from "../components/SearchPokemon/SearchPokemon";
+import Footer from "../components/UI/Footer/Footer";
 import Header from "../components/UI/Header/Header";
-import LoadingForms from "../components/UI/LoadingForm/LoadingForm";
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <LoadingForms />
+      <SearchPokemon />
+      <Footer />
     </div>
   );
 };

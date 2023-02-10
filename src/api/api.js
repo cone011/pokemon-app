@@ -16,6 +16,8 @@ export async function getSearchPokemon(pokemonName) {
   if (!result.ok) {
     throw new Error("No se pudo encontrar el pokemon ingresado");
   }
+
+  return { ...jsonResult };
 }
 
 export function GetPokemonImage(idPokemon) {

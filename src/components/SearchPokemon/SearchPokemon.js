@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { getSearchPokemon } from "../../api/api";
 import classes from "./SearchPokemon.module.css";
+import CustomContainer from "../UI/CustomContainer/CustomContainer";
+import CustomButton from "../UI/CustomButton/CustomButton";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchPokemon = () => {
   const [searchPokemon, setSearchPokemon] = useState("");
 
   const onSearchPokemonHandler = async (event) => {
     event.preventDefault();
+    console.log(searchPokemon);
     if (!searchPokemon) {
       //raise error
     }
@@ -19,21 +24,23 @@ const SearchPokemon = () => {
   };
 
   return (
-    <form onSubmit={onSearchPokemonHandler}>
-      <div>
-        <input
-          type="text"
-          name="searchPokemon"
-          value={searchPokemon}
-          autoComplete="off"
-          placeholder="Busca tu pokemon"
-          onChange={onGetSearchInputValueHandler}
-        />
-        <button type="submit" className="btn">
-          Buscar
-        </button>
-      </div>
-    </form>
+    <CustomContainer classStyle={`${classes.containerSearch} mb-4`}>
+      <form onSubmit={onSearchPokemonHandler}>
+        <div className={classes.searchForm}>
+          <input
+            type="text"
+            name="searchPokemon"
+            value={searchPokemon}
+            autoComplete="off"
+            placeholder="Busca tu pokemon"
+            onChange={onGetSearchInputValueHandler}
+          />
+          <CustomButton className={classes.btnClearInput} typeButton="submit">
+            <FontAwesomeIcon icon={faSearch} />
+          </CustomButton>
+        </div>
+      </form>
+    </CustomContainer>
   );
 };
 

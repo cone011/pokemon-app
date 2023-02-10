@@ -19,7 +19,11 @@
   justify-content: space-between;
   border: 1px solid #495057;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 1.5rem auto;
 }
 
 .btnClearInput {
