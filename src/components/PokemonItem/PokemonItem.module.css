@@ -1,0 +1,49 @@
+.containerCard {
+  transition: all 0.7s;
+  background-color: var(--card_gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 14px 12px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.containerCard:hover {
+  text-decoration: none;
+}
+
+.containerCardImg {
+  z-index: 2;
+}
+
+.pokemonName {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+  margin-top: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.pokemonNumber {
+  margin-top: 4px;
+  color: var(--lightest_gray);
+}
+
+.typeItem {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
