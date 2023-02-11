@@ -1,11 +1,13 @@
 import classes from "./ShowMessage.module.css";
 import Card from "../Card/Card";
 import { Modal } from "react-bootstrap";
+import CustomButton from "../CustomButton/CustomButton";
+import LoadingForm from "../LoadingForm/LoadingForm";
 
 const ShowMessage = (props) => {
-  const { showModal, modalHandler, message, isError, children } = props;
+  const { showModal, modalHandler, message, typeMessage, children } = props;
 
-  if (isError) {
+  if (typeMessage === "ERROR") {
     return (
       <Modal show={showModal} onHide={modalHandler} size="lg" centered>
         <Modal.Header closeButton />
@@ -15,13 +17,18 @@ const ShowMessage = (props) => {
           </Card>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={modalHandler} className="btn">
+          <CustomButton
+            type="button"
+            className="btn"
+            onClickEvent={modalHandler}
+          >
             Cerrar
-          </button>
+          </CustomButton>
         </Modal.Footer>
       </Modal>
     );
-  } else {
+  }
+  if (typeMessage === "FORM") {
     return (
       <Modal show={showModal} onHide={modalHandler} size="lg" centered>
         <Modal.Header closeButton />
@@ -29,10 +36,23 @@ const ShowMessage = (props) => {
           <Card>{children}</Card>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={modalHandler} className="btn">
+          <CustomButton
+            type="button"
+            className="btn"
+            onClickEvent={modalHandler}
+          >
             Cerrar
-          </button>
+          </CustomButton>
         </Modal.Footer>
+      </Modal>
+    );
+  }
+  if (typeMessage === "LOADING") {
+    return (
+      <Modal show={showModal} size="lg" centered>
+        <Modal.Body>
+          <LoadingForm />
+        </Modal.Body>
       </Modal>
     );
   }

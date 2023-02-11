@@ -1,3 +1,15 @@
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textCenter {
+  text-align: center;
+}
+
 .spinner {
   display: inline-block;
   width: 150px;
@@ -10,8 +22,8 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 6px solid teal;
-  border-color: teal transparent teal transparent;
+  border: 6px solid #495057;
+  border-color: #495057 transparent #495057 transparent;
   animation: spinner 1.2s linear infinite;
 }
 
@@ -23,4 +35,3 @@
     transform: rotate(360deg);
   }
 }
-
