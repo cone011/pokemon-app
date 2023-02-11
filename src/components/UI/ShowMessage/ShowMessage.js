@@ -5,7 +5,14 @@ import CustomButton from "../CustomButton/CustomButton";
 import LoadingForm from "../LoadingForm/LoadingForm";
 
 const ShowMessage = (props) => {
-  const { showModal, modalHandler, message, typeMessage, children } = props;
+  const {
+    showModal,
+    modalHandler,
+    message,
+    typeMessage,
+    children,
+    dataObject,
+  } = props;
 
   if (typeMessage === "ERROR") {
     return (

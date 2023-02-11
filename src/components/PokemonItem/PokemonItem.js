@@ -40,8 +40,12 @@ const PokemonItem = (props) => {
     dataObject: null,
     message: null,
   });
-  const onShowDetailPokemon = (eventValue) => {
-    console.log(eventValue);
+  const onShowDetailPokemon = () => {
+    dispatchDetail({
+      type: "BEGIN",
+      typeForm: "FORM",
+      dataObject: pokemonObject,
+    });
   };
   return (
     <CustomContainer classStyle={`${classes.containerCard} mb-4`}>
