@@ -2,9 +2,11 @@ import classes from "./PokemonItem.module.css";
 import { GetPokemonImage } from "../../api/api";
 import CustomContainer from "../UI/CustomContainer/CustomContainer";
 import CustomButton from "../UI/CustomButton/CustomButton";
-import { useReducer } from "react";
+import { Fragment, useReducer } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import ShowMessage from "../UI/ShowMessage/ShowMessage";
+import PokemonForm from "../PokemonForm/PokemonForm";
 
 const showDetailReducer = (curDetail, action) => {
   switch (action.type) {
@@ -21,7 +23,7 @@ const showDetailReducer = (curDetail, action) => {
         ...curDetail,
         isShow: false,
         error: true,
-        typeForm: action.typeForm,
+        typeForm: null,
         message: action.message,
       };
     case "END":
@@ -41,38 +43,55 @@ const PokemonItem = (props) => {
     message: null,
   });
   const onShowDetailPokemon = () => {
+    console.log("entro");
     dispatchDetail({
       type: "BEGIN",
       typeForm: "FORM",
       dataObject: pokemonObject,
     });
+    console.log(reducerDetail);
   };
+  const modalHandler = () => {
+    dispatchDetail({ type: "END" });
+  };
+
   return (
-    <CustomContainer classStyle={`${classes.containerCard} mb-4`}>
-      <div>
-        <div className={classes.textCenter}>
-          <h2 className={classes.pokemonName}>{pokemonObject.name}</h2>
-          <p className={classes.pokemonNumber}>
-            # {pokemonObject.id.toString().padStart(3, "0")}
-          </p>
+    <Fragment>
+      <CustomContainer classStyle={`${classes.containerCard} mb-4`}>
+        <div>
+          <div className={classes.textCenter}>
+            <h2 className={classes.pokemonName}>{pokemonObject.name}</h2>
+            <p className={classes.pokemonNumber}>
+              # {pokemonObject.id.toString().padStart(3, "0")}
+            </p>
+          </div>
         </div>
-      </div>
-      <figure className={classes.containerCardImg}>
-        <img
-          alt={pokemonObject.name}
-          title={pokemonObject.name}
-          src={GetPokemonImage(pokemonObject.id)}
-        />
-      </figure>
-      <CustomButton
-        type="button"
-        className="btn"
-        onClickEvent={onShowDetailPokemon}
-      >
-        <FontAwesomeIcon icon={faBars} color="white" />
-        Detail
-      </CustomButton>
-    </CustomContainer>
+        <figure className={classes.containerCardImg}>
+          <img
+            alt={pokemonObject.name}
+            title={pokemonObject.name}
+            src={GetPokemonImage(pokemonObject.id)}
+          />
+        </figure>
+        <CustomButton
+          type="button"
+          className="btn"
+          onClickEvent={onShowDetailPokemon}
+        >
+          <FontAwesomeIcon icon={faBars} color="white" />
+          Detail
+        </CustomButton>
+      </CustomContainer>
+      {reducerDetail.isShow && (
+        <ShowMessage
+          typeMessage={reducerDetail.typeForm}
+          showModal={reducerDetail.isShow}
+          modalHandler={modalHandler}
+        >
+          <PokemonForm pokemonObject={pokemonObject} />
+        </ShowMessage>
+      )}
+    </Fragment>
   );
 };
 
