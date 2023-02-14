@@ -47,3 +47,35 @@ export function GetPokemonImage(idPokemon) {
   let idImage = idPokemon.toString().padStart(3, "0");
   return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idImage}.png`;
 }
+
+export async function GetEvolutionPokemon(pokemonName) {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`
+  );
+
+  const jsonResult = await response.json();
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener los datos");
+  }
+
+  console.log(jsonResult.evolution_chain);
+
+  let result = await GetEvolutionChain(jsonResult.evolution_chain.url);
+
+  return { ...jsonResult };
+}
+
+export async function GetEvolutionChain(url) {
+  const response = await fetch(url);
+
+  const jsonResult = await response.json();
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener los datos");
+  }
+
+  console.log(jsonResult);
+
+  return jsonResult;
+}

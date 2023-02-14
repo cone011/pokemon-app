@@ -1,0 +1,35 @@
+.pokeHead {
+  transition: all 0.7s;
+  background-color: var(--card_gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.pokeHead:hover {
+  text-decoration: none;
+}
+
+.pokeHeadImg {
+  z-index: 2;
+}
+
+.pokeHeadCenter {
+  text-align: center;
+}
+
+.pokeName {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+  margin-top: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.pokeNumber {
+  margin-top: 4px;
+  color: var(--lightest_gray);
+}

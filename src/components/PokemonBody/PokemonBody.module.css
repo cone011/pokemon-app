@@ -1,0 +1,26 @@
+.containerInfo {
+  background-color: var(--card_gray);
+  padding: 14px 10px;
+  border-radius: 10px;
+}
+
+.infoItem {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.infoItem h4 {
+  font-size: 14px;
+  margin-bottom: 0;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  /* font-family: "OldSansBlack"; */
+}
+
+.infoItem p {
+  margin-bottom: 0;
+  text-transform: capitalize;
+  font-size: 16px;
+  /* font-family: "OldSansBlack"; */
+}
