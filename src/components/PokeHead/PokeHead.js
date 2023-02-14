@@ -4,7 +4,6 @@ import { GetPokemonImage } from "../../api/api";
 
 const PokeHead = (props) => {
   const { pokemonObject } = props;
-  console.log(pokemonObject);
   return (
     <CustomContainer classStyle={`${classes.pokeHead} mb-4`}>
       <div>

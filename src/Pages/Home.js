@@ -41,10 +41,10 @@ const Home = () => {
       dispatchLoading({ type: "BEGIN", typeForm: "LOADING" });
       let result = await getAllPokemon();
       if (result.length <= 0) {
-        // dispatchLoading({
-        //   type: "ERROR",
-        //   message: "ERROR No se pudo obtener ningun pokemon",
-        // });
+        dispatchLoading({
+          type: "ERROR",
+          message: "ERROR No se pudo obtener ningun pokemon",
+        });
       }
       setList(result);
       dispatchLoading({ type: "END" });
@@ -54,7 +54,6 @@ const Home = () => {
         typeForm: "ERROR",
         message: `err: ${err}`,
       });
-      //dispatchLoading({ type: "ERROR", message: `Error: ${err}` });
     }
   }, []);
 

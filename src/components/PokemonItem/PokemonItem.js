@@ -43,13 +43,11 @@ const PokemonItem = (props) => {
     message: null,
   });
   const onShowDetailPokemon = () => {
-    console.log("entro");
     dispatchDetail({
       type: "BEGIN",
       typeForm: "FORM",
       dataObject: pokemonObject,
     });
-    console.log(reducerDetail);
   };
   const modalHandler = () => {
     dispatchDetail({ type: "END" });

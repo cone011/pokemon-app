@@ -39,9 +39,7 @@ const ShowMessage = (props) => {
     return (
       <Modal show={showModal} onHide={modalHandler} size="lg" centered>
         <Modal.Header closeButton />
-        <Modal.Body>
-          <Card>{children}</Card>
-        </Modal.Body>
+        <Modal.Body>{children}</Modal.Body>
         <Modal.Footer>
           <CustomButton
             type="button"

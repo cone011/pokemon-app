@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import PokeHead from "../PokeHead/PokeHead";
 import PokemonBody from "../PokemonBody/PokemonBody";
+import PokemonEvolution from "../PokemonEvolution/PokemonEvolution";
 import PokeStats from "../PokeStats/PokeStats";
 import classes from "./PokemonForm.module.css";
 
@@ -11,6 +12,7 @@ const PokemonForm = (props) => {
       <PokeHead pokemonObject={pokemonObject} />
       <PokemonBody pokemonObject={pokemonObject} />
       <PokeStats stats={pokemonObject.stats} />
+      <PokemonEvolution name={pokemonObject.name} />
     </Fragment>
   );
 };

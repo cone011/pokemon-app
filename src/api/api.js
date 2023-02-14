@@ -59,8 +59,6 @@ export async function GetEvolutionPokemon(pokemonName) {
     throw new Error("No se pudo obtener los datos");
   }
 
-  console.log(jsonResult.evolution_chain);
-
   let result = await GetEvolutionChain(jsonResult.evolution_chain.url);
 
   return { ...jsonResult };
@@ -74,8 +72,6 @@ export async function GetEvolutionChain(url) {
   if (!response.ok) {
     throw new Error("No se pudo obtener los datos");
   }
-
-  console.log(jsonResult);
 
   return jsonResult;
 }

@@ -8,7 +8,6 @@ const PokemonEvolution = (props) => {
 
   const assigmentValues = useCallback(async () => {
     let resultPokemon = await GetEvolutionPokemon(name);
-    console.log(resultPokemon);
   }, [name]);
 
   useEffect(() => {
