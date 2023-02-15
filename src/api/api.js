@@ -61,17 +61,36 @@ export async function GetEvolutionPokemon(pokemonName) {
 
   let result = await GetEvolutionChain(jsonResult.evolution_chain.url);
 
+  console.log(result);
+
   return { ...jsonResult };
 }
 
 export async function GetEvolutionChain(url) {
   const response = await fetch(url);
 
-  const jsonResult = await response.json();
+  const valueEvolution = await response.json();
+
+  const retrunEvolution = [];
+
+  let evolution = valueEvolution.chain;
+  while (evolution) {
+    if (evolution.evolves_to.length === 0) {
+      retrunEvolution.push({
+        ...evolution.species,
+      });
+      evolution = null;
+    } else {
+      retrunEvolution.push({
+        ...evolution.species,
+      });
+      evolution = evolution.evolves_to[0];
+    }
+  }
 
   if (!response.ok) {
     throw new Error("No se pudo obtener los datos");
   }
 
-  return jsonResult;
+  return retrunEvolution;
 }
