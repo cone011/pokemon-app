@@ -61,9 +61,7 @@ export async function GetEvolutionPokemon(pokemonName) {
 
   let result = await GetEvolutionChain(jsonResult.evolution_chain.url);
 
-  console.log(result);
-
-  return { ...jsonResult };
+  return result;
 }
 
 export async function GetEvolutionChain(url) {
@@ -75,14 +73,19 @@ export async function GetEvolutionChain(url) {
 
   let evolution = valueEvolution.chain;
   while (evolution) {
+    let resultEvolution = null;
     if (evolution.evolves_to.length === 0) {
+      resultEvolution = await GetPokeomData(evolution.species.url);
       retrunEvolution.push({
-        ...evolution.species,
+        name: evolution.species.name,
+        ...resultEvolution,
       });
       evolution = null;
     } else {
+      resultEvolution = await GetPokeomData(evolution.species.url);
       retrunEvolution.push({
-        ...evolution.species,
+        name: evolution.species.name,
+        ...resultEvolution,
       });
       evolution = evolution.evolves_to[0];
     }
