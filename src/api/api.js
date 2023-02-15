@@ -97,3 +97,17 @@ export async function GetEvolutionChain(url) {
 
   return retrunEvolution;
 }
+
+export async function GetPokemonSpecies(pokemonName) {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`
+  );
+
+  const jsonResult = await response.json();
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener los datos");
+  }
+
+  return { ...jsonResult };
+}
