@@ -21,7 +21,7 @@ const ShowMessage = (props) => {
             className="btn"
             onClickEvent={modalHandler}
           >
-            Cerrar
+            Close
           </CustomButton>
         </Modal.Footer>
       </Modal>
@@ -38,7 +38,7 @@ const ShowMessage = (props) => {
             className="btn"
             onClickEvent={modalHandler}
           >
-            Cerrar
+            Close
           </CustomButton>
         </Modal.Footer>
       </Modal>

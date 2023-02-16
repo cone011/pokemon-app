@@ -31,7 +31,7 @@ const SearchPokemon = (props) => {
           name="searchPokemon"
           value={searchPokemon}
           autoComplete="off"
-          placeholder="Busca tu pokemon"
+          placeholder="Filter a pokemon"
           onChange={onGetSearchInputValueHandler}
         />
         <CustomButton

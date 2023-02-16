@@ -71,7 +71,7 @@ const PokemonItem = (props) => {
             src={GetPokemonImage(pokemonObject.id)}
           />
         </figure>
-        <label className={classes.textColor}>Detalle</label>
+        <label className={classes.textColor}>Detail</label>
         <CustomButton
           type="button"
           className="btn"
