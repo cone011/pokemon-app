@@ -1,7 +1,7 @@
 import { CALL_API_ROUTE } from "../utils/LinkApi";
 
 export async function getAllPokemon() {
-  const result = await fetch(`${CALL_API_ROUTE}pokemon?limit=500&offset=0`);
+  const result = await fetch(`${CALL_API_ROUTE}pokemon?limit=151&offset=0`);
 
   const jsonResult = await result.json();
 
