@@ -2,7 +2,10 @@ import classes from "./PokemonBody.module.css";
 import CustomContainer from "../UI/CustomContainer/CustomContainer";
 import { useCallback, useEffect, useState } from "react";
 import { GetPokemonSpecies } from "../../api/api";
-import { recursiveAbilities } from "../../utils/RecursiveAbilities";
+import {
+  recursiveAbilities,
+  recursiveTypes,
+} from "../../utils/RecursiveAbilities";
 
 const PokemonBody = (props) => {
   const { pokemonObject } = props;
@@ -10,15 +13,16 @@ const PokemonBody = (props) => {
   const assigmentValues = useCallback(async () => {
     let result = await GetPokemonSpecies(pokemonObject.name);
     let abilities = recursiveAbilities(pokemonObject.abilities);
+    let types = recursiveTypes(pokemonObject.types);
     var pokemonData = {
       id: pokemonObject.id,
       name: pokemonObject.name,
-      types: pokemonObject.types,
       height: pokemonObject.height,
       weight: pokemonObject.weight,
       captureRate: result.capture_rate,
       habitat: result.habitat?.name,
       abilities: abilities,
+      types: types,
     };
     setDataPokemon(pokemonData);
   }, [pokemonObject]);
@@ -48,6 +52,10 @@ const PokemonBody = (props) => {
       <div className={classes.infoItem}>
         <h4>Abilities</h4>
         <p>{dataPokemon.abilities ? dataPokemon.abilities : ""}</p>
+      </div>
+      <div className={classes.infoItem}>
+        <h4>Type</h4>
+        <p>{dataPokemon.types ? dataPokemon.types : ""}</p>
       </div>
     </CustomContainer>
   );

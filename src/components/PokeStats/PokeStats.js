@@ -17,7 +17,10 @@ const PokeStats = (props) => {
               <p className={classes.value}>{item.base_stat}</p>
             </div>
           </div>
-          <p className="mb-0 mt-2 text-center label limit-text">
+          <p
+            className="mb-0 mt-2 text-center label limit-text"
+            style={{ color: "white" }}
+          >
             {item.stat.name}
           </p>
         </div>

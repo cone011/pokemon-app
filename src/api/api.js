@@ -1,7 +1,7 @@
+import { CALL_API_ROUTE } from "../utils/LinkApi";
+
 export async function getAllPokemon() {
-  const result = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=500&offset=0"
-  );
+  const result = await fetch(`${CALL_API_ROUTE}pokemon?limit=500&offset=0`);
 
   const jsonResult = await result.json();
 
@@ -30,9 +30,7 @@ export async function GetPokeomData(urlData) {
 }
 
 export async function getSearchPokemon(pokemonName) {
-  const result = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-  );
+  const result = await fetch(`${CALL_API_ROUTE}pokemon/${pokemonName}`);
 
   const jsonResult = await result.json();
 
@@ -50,7 +48,7 @@ export function GetPokemonImage(idPokemon) {
 
 export async function GetEvolutionPokemon(pokemonName) {
   const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`
+    `${CALL_API_ROUTE}pokemon-species/${pokemonName}`
   );
 
   const jsonResult = await response.json();
@@ -72,6 +70,7 @@ export async function GetEvolutionChain(url) {
   const retrunEvolution = [];
 
   let evolution = valueEvolution.chain;
+  //Using linked list to get all the evolution chain
   while (evolution) {
     let resultEvolution = null;
     if (evolution.evolves_to.length === 0) {
@@ -100,7 +99,7 @@ export async function GetEvolutionChain(url) {
 
 export async function GetPokemonSpecies(pokemonName) {
   const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`
+    `${CALL_API_ROUTE}pokemon-species/${pokemonName}`
   );
 
   const jsonResult = await response.json();

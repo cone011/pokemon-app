@@ -24,9 +24,9 @@ const PokemonEvolution = (props) => {
       <h4 className={`w-100 mb-4 ${classes.sectionTitle}`}>Evolution Line</h4>
       <div className="w-100 d-flex flex-column flex-md-row flex-wrap justify-content-between">
         {listEvolution.length > 0 &&
-          listEvolution.map((item, index) => (
+          listEvolution.map((item, key) => (
             <Fragment>
-              <div className={classes.evolutionItem} key={index}>
+              <div key={key} className={classes.evolutionItem}>
                 <figure>
                   <img
                     src={GetPokemonImage(item.id)}
@@ -39,7 +39,7 @@ const PokemonEvolution = (props) => {
                   #{item.id.toString().padStart(3, "0")}
                 </p>
               </div>
-              {index < listEvolution.length - 1 && (
+              {key < listEvolution.length - 1 && (
                 <div className={classes.containterArow}>
                   <FontAwesomeIcon
                     className={classes.text}

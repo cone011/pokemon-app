@@ -71,13 +71,13 @@ const PokemonItem = (props) => {
             src={GetPokemonImage(pokemonObject.id)}
           />
         </figure>
+        <label className={classes.textColor}>Detalle</label>
         <CustomButton
           type="button"
           className="btn"
           onClickEvent={onShowDetailPokemon}
         >
           <FontAwesomeIcon icon={faBars} color="white" />
-          Detail
         </CustomButton>
       </CustomContainer>
       {reducerDetail.isShow && (

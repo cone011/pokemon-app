@@ -1,15 +1,13 @@
+//Using a recursive function to get the values for the abilities
 export const recursiveAbilities = (list) => {
-  let listAbilities = "";
-  function loopArray(arr) {
-    if (arr.length === 0) return;
-    let currentValue = arr[0];
-    if (arr.length === 1) {
-      listAbilities += currentValue.ability.name;
-    } else {
-      listAbilities += currentValue.ability.name + ", ";
-    }
-    return loopArray(arr.slice(1));
-  }
-  loopArray(list);
-  return listAbilities;
+  let currentValue = list[0];
+  if (list.length === 1) return currentValue.ability.name;
+  return currentValue.ability.name + ", " + recursiveAbilities(list.slice(1));
+};
+
+//Using a recursive function to get the values for the types
+export const recursiveTypes = (list) => {
+  let currentValue = list[0];
+  if (list.length === 1) return currentValue.type.name;
+  return currentValue.type.name + ", " + recursiveTypes(list.slice(1));
 };
