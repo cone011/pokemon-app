@@ -5,7 +5,7 @@ const LoadingForm = () => {
     <div className={classes.centered}>
       <div>
         <h1 className={classes.textCenter}>
-          LOADING............. Obtain the first 500 pokemons
+          LOADING............. Just wait please
         </h1>
         <br />
         <div className={classes.spinner} />
