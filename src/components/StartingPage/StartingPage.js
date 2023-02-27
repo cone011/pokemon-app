@@ -4,6 +4,7 @@ import ShowMessage from "../UI/ShowMessage/ShowMessage";
 import Header from "../UI/Header/Header";
 import { getAllPokemon } from "../../api/api";
 import Pagination from "../UI/Pagination/Pagination";
+import { CALL_API_ROUTE } from "../../utils/LinkApi";
 
 const loadingReducer = (curLoading, action) => {
   switch (action.type) {
@@ -38,9 +39,7 @@ const loadingReducer = (curLoading, action) => {
 
 const StartingPage = () => {
   const [list, setList] = useState([]);
-  const [currentPageUrl, setCurrentPageUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon"
-  );
+  const [currentPageUrl, setCurrentPageUrl] = useState(CALL_API_ROUTE);
   const [reducerLoading, dispatchLoading] = useReducer(loadingReducer, {
     isShow: false,
     error: false,
