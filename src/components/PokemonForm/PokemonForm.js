@@ -6,6 +6,7 @@ import PokeStats from "../PokeStats/PokeStats";
 
 const PokemonForm = (props) => {
   const { pokemonObject } = props;
+  console.log(pokemonObject);
   return (
     <Fragment>
       <PokeHead pokemonObject={pokemonObject} />
