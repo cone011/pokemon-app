@@ -63,15 +63,3 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
-
-@media screen and (max-width: 998px) {
-  .label {
-    font-size: 10px;
-    max-width: 40px;
-  }
-
-  .barActive,
-  .barItem {
-    width: 40px;
-  }
-}
